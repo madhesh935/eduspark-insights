@@ -12,20 +12,16 @@ export const Route = createFileRoute("/signup")({
   component: Signup,
 });
 
-type Role = "Teacher" | "Student" | "Admin" | "Parent";
+type Role = "Teacher" | "Student";
 
 const roleDestination: Record<Role, string> = {
   Teacher: "/teacher-classes",
-  Admin: "/admin-dashboard",
   Student: "/student-home",
-  Parent: "/parent-dashboard",
 };
 
 const roleConfig: Record<Role, { icon: React.ComponentType<{ className?: string }>; desc: string; color: string }> = {
   Teacher: { icon: BookOpen, desc: "Manage classes, create assessments, view insights", color: "border-primary bg-primary/10 text-primary" },
   Student: { icon: StudentIcon, desc: "Take assessments, view your learning path", color: "border-success bg-success/10 text-success" },
-  Admin: { icon: Shield, desc: "Institution analytics and oversight", color: "border-warning bg-warning/10 text-warning" },
-  Parent: { icon: Heart, desc: "Track your child's progress and get AI summaries", color: "border-destructive bg-destructive/10 text-destructive" },
 };
 
 function Signup() {
