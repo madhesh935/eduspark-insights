@@ -36,7 +36,7 @@ function StudentProfile() {
           <div className="flex items-center gap-4">
             <Avatar className="h-16 w-16 ring-2 ring-primary/20">
               <AvatarImage src={student.avatar} />
-              <AvatarFallback>{student.name.split(" ").map(n=>n[0]).join("")}</AvatarFallback>
+              <AvatarFallback>{student.name.split(" ").map((n: string) => n[0]).join("")}</AvatarFallback>
             </Avatar>
             <div>
               <h1 className="font-display text-2xl font-bold tracking-tight">{student.name}</h1>
