@@ -11,16 +11,30 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as DemoRouteImport } from './routes/demo'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppTeacherInterventionsRouteImport } from './routes/_app.teacher-interventions'
+import { Route as AppTeacherDigitalTwinRouteImport } from './routes/_app.teacher-digital-twin'
+import { Route as AppTeacherCreateAssessmentRouteImport } from './routes/_app.teacher-create-assessment'
+import { Route as AppTeacherClassesRouteImport } from './routes/_app.teacher-classes'
 import { Route as AppStudentsRouteImport } from './routes/_app.students'
+import { Route as AppStudentSettingsRouteImport } from './routes/_app.student-settings'
+import { Route as AppStudentResultsRouteImport } from './routes/_app.student-results'
+import { Route as AppStudentLearningPathRouteImport } from './routes/_app.student-learning-path'
+import { Route as AppStudentHomeRouteImport } from './routes/_app.student-home'
+import { Route as AppStudentAssessmentRouteImport } from './routes/_app.student-assessment'
+import { Route as AppStudentAiTutorRouteImport } from './routes/_app.student-ai-tutor'
 import { Route as AppSettingsRouteImport } from './routes/_app.settings'
 import { Route as AppReportsRouteImport } from './routes/_app.reports'
+import { Route as AppParentSettingsRouteImport } from './routes/_app.parent-settings'
+import { Route as AppParentDashboardRouteImport } from './routes/_app.parent-dashboard'
 import { Route as AppLearningGapsRouteImport } from './routes/_app.learning-gaps'
 import { Route as AppDashboardRouteImport } from './routes/_app.dashboard'
 import { Route as AppClassroomRouteImport } from './routes/_app.classroom'
 import { Route as AppAiTutorRouteImport } from './routes/_app.ai-tutor'
 import { Route as AppAiInsightsRouteImport } from './routes/_app.ai-insights'
+import { Route as AppAdminDashboardRouteImport } from './routes/_app.admin-dashboard'
 import { Route as AppStudentsIdRouteImport } from './routes/_app.students.$id'
 
 const SignupRoute = SignupRouteImport.update({
@@ -33,6 +47,11 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DemoRoute = DemoRouteImport.update({
+  id: '/demo',
+  path: '/demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppRoute = AppRouteImport.update({
   id: '/_app',
   getParentRoute: () => rootRouteImport,
@@ -42,9 +61,60 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppTeacherInterventionsRoute = AppTeacherInterventionsRouteImport.update({
+  id: '/teacher-interventions',
+  path: '/teacher-interventions',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTeacherDigitalTwinRoute = AppTeacherDigitalTwinRouteImport.update({
+  id: '/teacher-digital-twin',
+  path: '/teacher-digital-twin',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTeacherCreateAssessmentRoute =
+  AppTeacherCreateAssessmentRouteImport.update({
+    id: '/teacher-create-assessment',
+    path: '/teacher-create-assessment',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppTeacherClassesRoute = AppTeacherClassesRouteImport.update({
+  id: '/teacher-classes',
+  path: '/teacher-classes',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppStudentsRoute = AppStudentsRouteImport.update({
   id: '/students',
   path: '/students',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudentSettingsRoute = AppStudentSettingsRouteImport.update({
+  id: '/student-settings',
+  path: '/student-settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudentResultsRoute = AppStudentResultsRouteImport.update({
+  id: '/student-results',
+  path: '/student-results',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudentLearningPathRoute = AppStudentLearningPathRouteImport.update({
+  id: '/student-learning-path',
+  path: '/student-learning-path',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudentHomeRoute = AppStudentHomeRouteImport.update({
+  id: '/student-home',
+  path: '/student-home',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudentAssessmentRoute = AppStudentAssessmentRouteImport.update({
+  id: '/student-assessment',
+  path: '/student-assessment',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudentAiTutorRoute = AppStudentAiTutorRouteImport.update({
+  id: '/student-ai-tutor',
+  path: '/student-ai-tutor',
   getParentRoute: () => AppRoute,
 } as any)
 const AppSettingsRoute = AppSettingsRouteImport.update({
@@ -55,6 +125,16 @@ const AppSettingsRoute = AppSettingsRouteImport.update({
 const AppReportsRoute = AppReportsRouteImport.update({
   id: '/reports',
   path: '/reports',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppParentSettingsRoute = AppParentSettingsRouteImport.update({
+  id: '/parent-settings',
+  path: '/parent-settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppParentDashboardRoute = AppParentDashboardRouteImport.update({
+  id: '/parent-dashboard',
+  path: '/parent-dashboard',
   getParentRoute: () => AppRoute,
 } as any)
 const AppLearningGapsRoute = AppLearningGapsRouteImport.update({
@@ -82,6 +162,11 @@ const AppAiInsightsRoute = AppAiInsightsRouteImport.update({
   path: '/ai-insights',
   getParentRoute: () => AppRoute,
 } as any)
+const AppAdminDashboardRoute = AppAdminDashboardRouteImport.update({
+  id: '/admin-dashboard',
+  path: '/admin-dashboard',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppStudentsIdRoute = AppStudentsIdRouteImport.update({
   id: '/$id',
   path: '/$id',
@@ -90,97 +175,182 @@ const AppStudentsIdRoute = AppStudentsIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/demo': typeof DemoRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
+  '/admin-dashboard': typeof AppAdminDashboardRoute
   '/ai-insights': typeof AppAiInsightsRoute
   '/ai-tutor': typeof AppAiTutorRoute
   '/classroom': typeof AppClassroomRoute
   '/dashboard': typeof AppDashboardRoute
   '/learning-gaps': typeof AppLearningGapsRoute
+  '/parent-dashboard': typeof AppParentDashboardRoute
+  '/parent-settings': typeof AppParentSettingsRoute
   '/reports': typeof AppReportsRoute
   '/settings': typeof AppSettingsRoute
+  '/student-ai-tutor': typeof AppStudentAiTutorRoute
+  '/student-assessment': typeof AppStudentAssessmentRoute
+  '/student-home': typeof AppStudentHomeRoute
+  '/student-learning-path': typeof AppStudentLearningPathRoute
+  '/student-results': typeof AppStudentResultsRoute
+  '/student-settings': typeof AppStudentSettingsRoute
   '/students': typeof AppStudentsRouteWithChildren
+  '/teacher-classes': typeof AppTeacherClassesRoute
+  '/teacher-create-assessment': typeof AppTeacherCreateAssessmentRoute
+  '/teacher-digital-twin': typeof AppTeacherDigitalTwinRoute
+  '/teacher-interventions': typeof AppTeacherInterventionsRoute
   '/students/$id': typeof AppStudentsIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/demo': typeof DemoRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
+  '/admin-dashboard': typeof AppAdminDashboardRoute
   '/ai-insights': typeof AppAiInsightsRoute
   '/ai-tutor': typeof AppAiTutorRoute
   '/classroom': typeof AppClassroomRoute
   '/dashboard': typeof AppDashboardRoute
   '/learning-gaps': typeof AppLearningGapsRoute
+  '/parent-dashboard': typeof AppParentDashboardRoute
+  '/parent-settings': typeof AppParentSettingsRoute
   '/reports': typeof AppReportsRoute
   '/settings': typeof AppSettingsRoute
+  '/student-ai-tutor': typeof AppStudentAiTutorRoute
+  '/student-assessment': typeof AppStudentAssessmentRoute
+  '/student-home': typeof AppStudentHomeRoute
+  '/student-learning-path': typeof AppStudentLearningPathRoute
+  '/student-results': typeof AppStudentResultsRoute
+  '/student-settings': typeof AppStudentSettingsRoute
   '/students': typeof AppStudentsRouteWithChildren
+  '/teacher-classes': typeof AppTeacherClassesRoute
+  '/teacher-create-assessment': typeof AppTeacherCreateAssessmentRoute
+  '/teacher-digital-twin': typeof AppTeacherDigitalTwinRoute
+  '/teacher-interventions': typeof AppTeacherInterventionsRoute
   '/students/$id': typeof AppStudentsIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_app': typeof AppRouteWithChildren
+  '/demo': typeof DemoRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
+  '/_app/admin-dashboard': typeof AppAdminDashboardRoute
   '/_app/ai-insights': typeof AppAiInsightsRoute
   '/_app/ai-tutor': typeof AppAiTutorRoute
   '/_app/classroom': typeof AppClassroomRoute
   '/_app/dashboard': typeof AppDashboardRoute
   '/_app/learning-gaps': typeof AppLearningGapsRoute
+  '/_app/parent-dashboard': typeof AppParentDashboardRoute
+  '/_app/parent-settings': typeof AppParentSettingsRoute
   '/_app/reports': typeof AppReportsRoute
   '/_app/settings': typeof AppSettingsRoute
+  '/_app/student-ai-tutor': typeof AppStudentAiTutorRoute
+  '/_app/student-assessment': typeof AppStudentAssessmentRoute
+  '/_app/student-home': typeof AppStudentHomeRoute
+  '/_app/student-learning-path': typeof AppStudentLearningPathRoute
+  '/_app/student-results': typeof AppStudentResultsRoute
+  '/_app/student-settings': typeof AppStudentSettingsRoute
   '/_app/students': typeof AppStudentsRouteWithChildren
+  '/_app/teacher-classes': typeof AppTeacherClassesRoute
+  '/_app/teacher-create-assessment': typeof AppTeacherCreateAssessmentRoute
+  '/_app/teacher-digital-twin': typeof AppTeacherDigitalTwinRoute
+  '/_app/teacher-interventions': typeof AppTeacherInterventionsRoute
   '/_app/students/$id': typeof AppStudentsIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/demo'
     | '/login'
     | '/signup'
+    | '/admin-dashboard'
     | '/ai-insights'
     | '/ai-tutor'
     | '/classroom'
     | '/dashboard'
     | '/learning-gaps'
+    | '/parent-dashboard'
+    | '/parent-settings'
     | '/reports'
     | '/settings'
+    | '/student-ai-tutor'
+    | '/student-assessment'
+    | '/student-home'
+    | '/student-learning-path'
+    | '/student-results'
+    | '/student-settings'
     | '/students'
+    | '/teacher-classes'
+    | '/teacher-create-assessment'
+    | '/teacher-digital-twin'
+    | '/teacher-interventions'
     | '/students/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/demo'
     | '/login'
     | '/signup'
+    | '/admin-dashboard'
     | '/ai-insights'
     | '/ai-tutor'
     | '/classroom'
     | '/dashboard'
     | '/learning-gaps'
+    | '/parent-dashboard'
+    | '/parent-settings'
     | '/reports'
     | '/settings'
+    | '/student-ai-tutor'
+    | '/student-assessment'
+    | '/student-home'
+    | '/student-learning-path'
+    | '/student-results'
+    | '/student-settings'
     | '/students'
+    | '/teacher-classes'
+    | '/teacher-create-assessment'
+    | '/teacher-digital-twin'
+    | '/teacher-interventions'
     | '/students/$id'
   id:
     | '__root__'
     | '/'
     | '/_app'
+    | '/demo'
     | '/login'
     | '/signup'
+    | '/_app/admin-dashboard'
     | '/_app/ai-insights'
     | '/_app/ai-tutor'
     | '/_app/classroom'
     | '/_app/dashboard'
     | '/_app/learning-gaps'
+    | '/_app/parent-dashboard'
+    | '/_app/parent-settings'
     | '/_app/reports'
     | '/_app/settings'
+    | '/_app/student-ai-tutor'
+    | '/_app/student-assessment'
+    | '/_app/student-home'
+    | '/_app/student-learning-path'
+    | '/_app/student-results'
+    | '/_app/student-settings'
     | '/_app/students'
+    | '/_app/teacher-classes'
+    | '/_app/teacher-create-assessment'
+    | '/_app/teacher-digital-twin'
+    | '/_app/teacher-interventions'
     | '/_app/students/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRoute: typeof AppRouteWithChildren
+  DemoRoute: typeof DemoRoute
   LoginRoute: typeof LoginRoute
   SignupRoute: typeof SignupRoute
 }
@@ -201,6 +371,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/demo': {
+      id: '/demo'
+      path: '/demo'
+      fullPath: '/demo'
+      preLoaderRoute: typeof DemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_app': {
       id: '/_app'
       path: ''
@@ -215,11 +392,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_app/teacher-interventions': {
+      id: '/_app/teacher-interventions'
+      path: '/teacher-interventions'
+      fullPath: '/teacher-interventions'
+      preLoaderRoute: typeof AppTeacherInterventionsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/teacher-digital-twin': {
+      id: '/_app/teacher-digital-twin'
+      path: '/teacher-digital-twin'
+      fullPath: '/teacher-digital-twin'
+      preLoaderRoute: typeof AppTeacherDigitalTwinRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/teacher-create-assessment': {
+      id: '/_app/teacher-create-assessment'
+      path: '/teacher-create-assessment'
+      fullPath: '/teacher-create-assessment'
+      preLoaderRoute: typeof AppTeacherCreateAssessmentRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/teacher-classes': {
+      id: '/_app/teacher-classes'
+      path: '/teacher-classes'
+      fullPath: '/teacher-classes'
+      preLoaderRoute: typeof AppTeacherClassesRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/students': {
       id: '/_app/students'
       path: '/students'
       fullPath: '/students'
       preLoaderRoute: typeof AppStudentsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/student-settings': {
+      id: '/_app/student-settings'
+      path: '/student-settings'
+      fullPath: '/student-settings'
+      preLoaderRoute: typeof AppStudentSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/student-results': {
+      id: '/_app/student-results'
+      path: '/student-results'
+      fullPath: '/student-results'
+      preLoaderRoute: typeof AppStudentResultsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/student-learning-path': {
+      id: '/_app/student-learning-path'
+      path: '/student-learning-path'
+      fullPath: '/student-learning-path'
+      preLoaderRoute: typeof AppStudentLearningPathRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/student-home': {
+      id: '/_app/student-home'
+      path: '/student-home'
+      fullPath: '/student-home'
+      preLoaderRoute: typeof AppStudentHomeRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/student-assessment': {
+      id: '/_app/student-assessment'
+      path: '/student-assessment'
+      fullPath: '/student-assessment'
+      preLoaderRoute: typeof AppStudentAssessmentRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/student-ai-tutor': {
+      id: '/_app/student-ai-tutor'
+      path: '/student-ai-tutor'
+      fullPath: '/student-ai-tutor'
+      preLoaderRoute: typeof AppStudentAiTutorRouteImport
       parentRoute: typeof AppRoute
     }
     '/_app/settings': {
@@ -234,6 +481,20 @@ declare module '@tanstack/react-router' {
       path: '/reports'
       fullPath: '/reports'
       preLoaderRoute: typeof AppReportsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/parent-settings': {
+      id: '/_app/parent-settings'
+      path: '/parent-settings'
+      fullPath: '/parent-settings'
+      preLoaderRoute: typeof AppParentSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/parent-dashboard': {
+      id: '/_app/parent-dashboard'
+      path: '/parent-dashboard'
+      fullPath: '/parent-dashboard'
+      preLoaderRoute: typeof AppParentDashboardRouteImport
       parentRoute: typeof AppRoute
     }
     '/_app/learning-gaps': {
@@ -271,6 +532,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAiInsightsRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/admin-dashboard': {
+      id: '/_app/admin-dashboard'
+      path: '/admin-dashboard'
+      fullPath: '/admin-dashboard'
+      preLoaderRoute: typeof AppAdminDashboardRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/students/$id': {
       id: '/_app/students/$id'
       path: '/$id'
@@ -294,25 +562,51 @@ const AppStudentsRouteWithChildren = AppStudentsRoute._addFileChildren(
 )
 
 interface AppRouteChildren {
+  AppAdminDashboardRoute: typeof AppAdminDashboardRoute
   AppAiInsightsRoute: typeof AppAiInsightsRoute
   AppAiTutorRoute: typeof AppAiTutorRoute
   AppClassroomRoute: typeof AppClassroomRoute
   AppDashboardRoute: typeof AppDashboardRoute
   AppLearningGapsRoute: typeof AppLearningGapsRoute
+  AppParentDashboardRoute: typeof AppParentDashboardRoute
+  AppParentSettingsRoute: typeof AppParentSettingsRoute
   AppReportsRoute: typeof AppReportsRoute
   AppSettingsRoute: typeof AppSettingsRoute
+  AppStudentAiTutorRoute: typeof AppStudentAiTutorRoute
+  AppStudentAssessmentRoute: typeof AppStudentAssessmentRoute
+  AppStudentHomeRoute: typeof AppStudentHomeRoute
+  AppStudentLearningPathRoute: typeof AppStudentLearningPathRoute
+  AppStudentResultsRoute: typeof AppStudentResultsRoute
+  AppStudentSettingsRoute: typeof AppStudentSettingsRoute
   AppStudentsRoute: typeof AppStudentsRouteWithChildren
+  AppTeacherClassesRoute: typeof AppTeacherClassesRoute
+  AppTeacherCreateAssessmentRoute: typeof AppTeacherCreateAssessmentRoute
+  AppTeacherDigitalTwinRoute: typeof AppTeacherDigitalTwinRoute
+  AppTeacherInterventionsRoute: typeof AppTeacherInterventionsRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
+  AppAdminDashboardRoute: AppAdminDashboardRoute,
   AppAiInsightsRoute: AppAiInsightsRoute,
   AppAiTutorRoute: AppAiTutorRoute,
   AppClassroomRoute: AppClassroomRoute,
   AppDashboardRoute: AppDashboardRoute,
   AppLearningGapsRoute: AppLearningGapsRoute,
+  AppParentDashboardRoute: AppParentDashboardRoute,
+  AppParentSettingsRoute: AppParentSettingsRoute,
   AppReportsRoute: AppReportsRoute,
   AppSettingsRoute: AppSettingsRoute,
+  AppStudentAiTutorRoute: AppStudentAiTutorRoute,
+  AppStudentAssessmentRoute: AppStudentAssessmentRoute,
+  AppStudentHomeRoute: AppStudentHomeRoute,
+  AppStudentLearningPathRoute: AppStudentLearningPathRoute,
+  AppStudentResultsRoute: AppStudentResultsRoute,
+  AppStudentSettingsRoute: AppStudentSettingsRoute,
   AppStudentsRoute: AppStudentsRouteWithChildren,
+  AppTeacherClassesRoute: AppTeacherClassesRoute,
+  AppTeacherCreateAssessmentRoute: AppTeacherCreateAssessmentRoute,
+  AppTeacherDigitalTwinRoute: AppTeacherDigitalTwinRoute,
+  AppTeacherInterventionsRoute: AppTeacherInterventionsRoute,
 }
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
@@ -320,9 +614,20 @@ const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRoute: AppRouteWithChildren,
+  DemoRoute: DemoRoute,
   LoginRoute: LoginRoute,
   SignupRoute: SignupRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
